@@ -28,7 +28,7 @@ Grab the latest `nulCleaner.exe` from the [Releases page](../../releases) and ru
 >
 > Click **More info** → **Run anyway**. Or, before launching, right-click `nulCleaner.exe` → **Properties** → tick **Unblock** → **OK**.
 >
-> Code signing through [SignPath Foundation](https://signpath.io/foundation) is in progress — once the certificate lands, the warning will disappear.
+> Code signing through [SignPath Foundation](https://signpath.org/) is in progress — once the certificate lands, the warning will disappear. See [CODE_SIGNING_POLICY.md](CODE_SIGNING_POLICY.md) for how releases are reviewed and signed.
 
 ## Requirements
 
