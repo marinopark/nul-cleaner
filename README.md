@@ -23,6 +23,13 @@ nulCleaner uses the `\\?\` Win32 namespace prefix to bypass that parser and remo
 
 Grab the latest `nulCleaner.exe` from the [Releases page](../../releases) and run it. Nothing to install.
 
+> **Heads up — Windows SmartScreen warning**
+> The binary isn't code-signed yet (signing for an indie OSS tool is non-trivial), so the first time you launch it Windows will show a blue "Windows protected your PC" screen.
+>
+> Click **More info** → **Run anyway**. Or, before launching, right-click `nulCleaner.exe` → **Properties** → tick **Unblock** → **OK**.
+>
+> Code signing through [SignPath Foundation](https://signpath.io/foundation) is in progress — once the certificate lands, the warning will disappear.
+
 ## Requirements
 
 - Windows 10 or 11
@@ -70,6 +77,9 @@ Windows에서 자꾸 생기는 `nul` 파일을 한 번에 찾아서 지워주는
 2. 더블클릭으로 실행 (설치 불필요)
 3. 정리할 폴더 선택 후 **NUL 파일 검색** → **선택 파일 삭제**
 4. (선택) **설정** → **자동 감지** 모드로 켜놓으면 새로 생기는 nul 파일이 자동으로 사라져요
+
+> **Windows SmartScreen 경고가 뜨면**
+> 아직 코드 서명 인증서가 없어서 첫 실행 시 파란색 "Windows의 PC 보호" 경고가 떠요. **추가 정보** → **실행** 클릭하면 정상 실행됩니다. 또는 다운로드한 파일 우클릭 → **속성** → **차단 해제** 체크 후 실행.
 
 ### 만든 이유
 
