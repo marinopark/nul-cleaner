@@ -1,0 +1,27 @@
+# Wails / Go build artefacts
+build/bin
+frontend/dist
+frontend/node_modules
+
+# misc binaries
+*.exe
+*.exe~
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# scratch / runtime
+test_delete/
+*.log
+
+# AI assistant local config
+.claude/
+
+# private design references (kept locally only)
+design/
+*.psd
+*.fig
+*.afdesign

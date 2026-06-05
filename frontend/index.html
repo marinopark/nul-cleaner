@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nulCleaner</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Custom title bar -->
+    <header class="titlebar">
+      <div class="titlebar-left">
+        <img class="mascot-img mascot-title" data-mascot alt="" />
+        <span class="titlebar-text">nulCleaner (Portable)</span>
+      </div>
+      <div class="titlebar-buttons" data-no-drag>
+        <button class="titlebar-btn" id="btn-min" title="최소화" aria-label="Minimise">
+          <svg width="12" height="12" viewBox="0 0 12 12"><rect x="2" y="5.5" width="8" height="1" fill="currentColor"/></svg>
+        </button>
+        <button class="titlebar-btn" id="btn-max" title="최대화" aria-label="Maximise">
+          <svg width="12" height="12" viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        </button>
+        <button class="titlebar-btn close" id="btn-close" title="닫기" aria-label="Close">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 2 L10 10 M10 2 L2 10" stroke="currentColor" stroke-width="1.2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="speech-bubble">
+          <div class="speech-text" data-i18n-html="speechBubble">NUL 파일<br/>깨끗하게 정리해줄게!</div>
+          <div class="speech-tail"></div>
+        </div>
+
+        <div class="mascot" aria-hidden="true">
+          <img class="mascot-img mascot-large" data-mascot alt="" />
+        </div>
+
+        <div class="welcome">Goodbye nul</div>
+
+        <div class="info-card">
+          <div class="info-card-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span data-i18n="sidebarFolderTitle">폴더 선택</span>
+          </div>
+          <div class="info-card-body" data-i18n-html="sidebarFolderDesc">
+            NUL 파일을 찾을 폴더를<br/>선택해주세요.
+          </div>
+        </div>
+
+        <button class="btn btn-ghost btn-settings" id="btn-settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span data-i18n="btnSettings">설정</span>
+        </button>
+      </aside>
+
+      <!-- Content -->
+      <section class="content">
+        <!-- Search location card -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-head-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C77B5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="card-head-text">
+              <h2 data-i18n="searchLocationTitle">검색 위치</h2>
+              <p data-i18n="searchLocationDesc">nulCleaner가 NUL 파일을 찾아 정리해요.</p>
+            </div>
+          </div>
+
+          <div class="path-row">
+            <input id="path-input" class="path-input" type="text" spellcheck="false" />
+            <button id="btn-browse" class="btn btn-primary btn-browse" data-i18n="browse">찾아보기</button>
+          </div>
+
+          <div class="path-options">
+            <label class="check">
+              <input type="checkbox" id="chk-recursive" checked />
+              <span class="check-box"></span>
+              <span data-i18n="includeSubfolders">하위 폴더 포함</span>
+            </label>
+            <span class="hint" data-i18n="defaultPath">기본 경로: 사용자 홈 폴더</span>
+          </div>
+        </div>
+
+        <!-- Results card -->
+        <div class="card results-card">
+          <h2 class="card-title" data-i18n="resultsTitle">정리 결과</h2>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-icon">
+                <svg width="44" height="48" viewBox="0 0 44 48" fill="none" stroke="#5C5C5C" stroke-width="1.6" stroke-linejoin="round"><path d="M6 4 h22 l10 10 v30 a2 2 0 0 1 -2 2 H6 a2 2 0 0 1 -2 -2 V6 a2 2 0 0 1 2 -2z M28 4 v10 h10"/><text x="22" y="34" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle" fill="#5C5C5C" stroke="none">NUL</text></svg>
+              </div>
+              <div class="stat-val" id="stat-found">0</div>
+              <div class="stat-label" data-i18n="statFound">발견된 NUL 파일</div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">
+                <svg width="44" height="48" viewBox="0 0 44 48" fill="none" stroke="#5C5C5C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12 h32 M14 12 v-4 a2 2 0 0 1 2 -2 h12 a2 2 0 0 1 2 2 v4 M10 12 l2 30 a2 2 0 0 0 2 2 h16 a2 2 0 0 0 2 -2 l2 -30 M18 18 v22 M26 18 v22"/></svg>
+              </div>
+              <div class="stat-val" id="stat-deleted">0</div>
+              <div class="stat-label" data-i18n="statDeleted">삭제된 파일</div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48"><g fill="#F2C13B"><path d="M22 4 l2 8 8 2 -8 2 -2 8 -2 -8 -8 -2 8 -2z"/><path d="M36 18 l1 4 4 1 -4 1 -1 4 -1 -4 -4 -1 4 -1z"/><path d="M10 28 l1 4 4 1 -4 1 -1 4 -1 -4 -4 -1 4 -1z"/><path d="M34 36 l0.7 2.5 2.5 0.7 -2.5 0.7 -0.7 2.5 -0.7 -2.5 -2.5 -0.7 2.5 -0.7z"/></g></svg>
+              </div>
+              <div class="stat-val"><span id="stat-freed">0</span><span class="stat-unit"> KB</span></div>
+              <div class="stat-label" data-i18n="statFreed">절약한 공간</div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">
+                <img class="mascot-img mascot-stat" data-mascot alt="" />
+              </div>
+              <div class="stat-val" id="stat-done">0</div>
+              <div class="stat-label" data-i18n="statDone">정리 완료!</div>
+            </div>
+          </div>
+
+          <div class="file-list" id="file-list" hidden>
+            <div class="file-list-header">
+              <span data-i18n="foundFilesHeader">발견된 파일</span>
+              <span class="file-list-count" id="file-list-count">0</span>
+            </div>
+            <ul class="file-list-items" id="file-list-items"></ul>
+          </div>
+
+          <div class="watch-banner" id="watch-banner" hidden>
+            <span class="watch-dot"></span>
+            <span data-i18n="watchBannerText">자동 감지 모드 — 새로 생기는 nul 파일을 즉시 삭제합니다.</span>
+          </div>
+
+          <div class="actions">
+            <button id="btn-scan" class="btn btn-primary btn-big">
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              </span>
+              <span data-i18n="btnFindNul">NUL 파일 검색</span>
+            </button>
+            <button id="btn-delete" class="btn btn-tertiary btn-big" disabled>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18 M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2 M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg>
+              </span>
+              <span data-i18n="btnDeleteSelected">선택 파일 삭제</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loading-overlay" hidden>
+      <div class="loading-content">
+        <div class="loading-mascot">
+          <span class="sparkle sparkle-1"></span>
+          <span class="sparkle sparkle-2"></span>
+          <span class="sparkle sparkle-3"></span>
+          <span class="sparkle sparkle-4"></span>
+          <img class="mascot-img mascot-loading" data-mascot alt="" />
+          <span class="loading-shadow"></span>
+        </div>
+        <div class="loading-text">
+          <span id="loading-text" data-i18n="loadingDefault">잠시만요</span><span class="loading-dots"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings modal -->
+    <div class="modal-backdrop" id="modal-settings" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-header">
+          <h2 id="modal-title" data-i18n="modalTitle">설정</h2>
+          <button class="modal-close" id="btn-settings-close" aria-label="닫기">
+            <svg width="14" height="14" viewBox="0 0 12 12"><path d="M2 2 L10 10 M10 2 L2 10" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <div class="setting-group-title" data-i18n="modeGroupTitle">동작 모드</div>
+
+            <label class="setting-option">
+              <input type="radio" name="mode" value="manual" />
+              <span class="setting-option-radio"></span>
+              <div class="setting-option-text">
+                <div class="setting-option-title" data-i18n="manualModeTitle">수동 검색</div>
+                <div class="setting-option-desc" data-i18n="manualModeDesc">필요할 때 'NUL 파일 검색' 버튼으로 직접 스캔합니다.</div>
+              </div>
+            </label>
+
+            <label class="setting-option">
+              <input type="radio" name="mode" value="auto" />
+              <span class="setting-option-radio"></span>
+              <div class="setting-option-text">
+                <div class="setting-option-title" data-i18n="autoModeTitle">자동 감지</div>
+                <div class="setting-option-desc" data-i18n="autoModeDesc">선택한 폴더를 1.5초마다 감시하면서 새로 생기는 nul 파일을 즉시 삭제합니다.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="btn-settings-cancel" data-i18n="btnCancel">취소</button>
+          <button class="btn btn-primary" id="btn-settings-save" data-i18n="btnSave">저장</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="statusbar">
+      <span class="portable-mode">
+        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="#3CA75B" stroke-width="1.6"><rect x="1" y="3" width="10" height="10" rx="1"/><rect x="3" y="1" width="6" height="2" fill="#3CA75B" stroke="none"/></svg>
+        <span>PORTABLE MODE</span>
+      </span>
+      <span class="status-center" id="status-message" data-i18n="statusbarMessage">nulCleaner가 깨끗하게 만들어줄께</span>
+      <span class="version-info">
+        <span class="version-meta">v1.0.0 · marino@flexbox.co.kr</span>
+        <img class="mascot-img mascot-status" data-mascot alt="" />
+      </span>
+    </footer>
+  </div>
+
+  <script src="./src/main.js" type="module"></script>
+</body>
+</html>
